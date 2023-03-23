@@ -1,13 +1,19 @@
 FROM python
 
-# Creating Application Source Code Directory
-RUN mkdir -p /usr/src/app
-
-# Setting Home Directory for containers
+# Create app directory
 WORKDIR /usr/src/app
 
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
-# Copying src code to Container
-COPY . /usr/src/app
+RUN echo "started"
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
 EXPOSE 12345
-CMD [ "python", "server.py"]
+CMD [ "node", "app.js" ]
