@@ -9,5 +9,5 @@ WORKDIR /usr/src/app
 
 # Copying src code to Container
 COPY . /usr/src/app
-EXPOSE 
+EXPOSE 12345
 CMD [ "python", "server.py"]
