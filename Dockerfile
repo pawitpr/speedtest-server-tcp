@@ -16,4 +16,4 @@ RUN echo "started"
 COPY . .
 
 EXPOSE 12345
-CMD [ "node", "app.js" ]
+CMD [ "python", "server.py" ]
